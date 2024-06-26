@@ -20,6 +20,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="images/star-favicon.png" type="">
 
   <style>
     .ranking-section {
@@ -49,6 +50,13 @@
 
     .heart-icon {
       color: red;
+    }
+
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -89,10 +97,10 @@
                 <a class="nav-link" href="ranking.html">랭킹<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="team.html">최근 기록</a>
+                <a class="nav-link" href="recentP.html">최근 기록</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              <li class="nav-item" id="loginItem" style="object-fit: 40;">
+                <a class="nav-link" href="login.html"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
               </li>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -111,7 +119,7 @@
   <section class="ranking-section">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>Top <span>10</span> Rankings</h2>
+        <h2>Top <span>10</span> 오늘의 하트순위</h2>
         <p>Check out the top-ranked items based on the number of hearts.</p>
       </div>
       <div class="ranking-container">
@@ -299,10 +307,23 @@
   </script>
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const userEmail = localStorage.getItem('userEmail');
+      
+      if (isLoggedIn) {
+        console.log('aaa');
+        const loginItem = document.getElementById('loginItem');
+        loginItem.innerHTML = `
+          <a class="nav-link" href="mypage.html">
+            <img src="images/Dotori_(1).jpg" alt="Profile" class="profile-img">
+          </a>
+        `;
+      }
+    });
   </script>
-  <!-- End Google Map -->
 </body>
 
 </html>

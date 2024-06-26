@@ -13,16 +13,13 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/star-favicon.png" type="">
 
-  <title> MPol - 기업 </title>
+  <title> MPol - 개인 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -31,7 +28,43 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
   <style>
+    .portfolio_grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .portfolio_item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .portfolio_item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .portfolio_item .detail-box {
+      padding: 10px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .portfolio_section {
+      overflow-y: auto;
+      max-height: 80vh;
+      padding-bottom: 20px;
+    }
+
+    .portfolio_item img:hover {
+      transform: scale(1.25);
+    }
+
     .profile-img {
       width: 40px;
       height: 40px;
@@ -68,19 +101,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
               <li class="nav-item ">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="worker.html"> 개인 </a>
+                <a class="nav-link" href="worker.html">개인</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="company.html">기업 <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="company.html">기업</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="ranking.html">랭킹</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="recentP.html">최근 기록</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="recentP.html">최근 기록<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item" id="loginItem">
                 <a class="nav-link" href="login.html"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -103,64 +136,90 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          기업 <span>Portfolio</span> 를 만나보세요
+          최근 <span>Portfolio</span> 를 찾아보세요.
         </h2>
         <p>
           Check out some of our latest projects.
         </p>
       </div>
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="portfolio_item">
-            <div class="img-box">
-              <img src="images/portfolio1.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>Project 1</h4>
-              <p>Short description of project 1.</p>
-            </div>
+      <div class="portfolio_grid">
+        <div class="portfolio_item">
+          <img src="images/45－1.jpg" alt="Project 1" class="portfolio-img" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+          <div class="detail-box">
+            <h4>Project 1</h4>
+            <p>Short description of project 1.</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="portfolio_item">
-            <div class="img-box">
-              <img src="images/portfolio2.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>Project 2</h4>
-              <p>Short description of project 2.</p>
-            </div>
+        <div class="portfolio_item">
+          <img src="images/IMG_9473.png" alt="Project 2" class="portfolio-img" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+          <div class="detail-box">
+            <h4>Project 2</h4>
+            <p>Short description of project 2.</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="portfolio_item">
-            <div class="img-box">
-              <img src="images/portfolio3.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>Project 3</h4>
-              <p>Short description of project 3.</p>
-            </div>
+        <div class="portfolio_item">
+          <img src="images/IMG_9473.png" alt="Project 3" class="portfolio-img" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+          <div class="detail-box">
+            <h4>Project 3</h4>
+            <p>Short description of project 4.</p>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="portfolio_item">
-            <div class="img-box">
-              <img src="images/portfolio4.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>Project 4</h4>
-              <p>Short description of project 4.</p>
-            </div>
+        <div class="portfolio_item">
+          <img src="images/45－1.jpg" alt="Project 4" class="portfolio-img" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+          <div class="detail-box">
+            <h4>Project 4</h4>
+            <p>Short description of project 4.</p>
           </div>
         </div>
+        <div class="portfolio_item">
+          <img src="images/45－1.jpg" alt="Project 5" class="portfolio-img" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+          <div class="detail-box">
+            <h4>Project 5</h4>
+            <p>Short description of project 5.</p>
+          </div>
+        </div>
+        <!-- Add more portfolio items as needed -->
       </div>
     </div>
   </section>
   <!-- end portfolio section -->
 
-  <!-- info section -->
+  <!-- Portfolio Modal -->
+  <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="portfolioModalLabel">포트폴리오</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <img src="" id="portfolioImage" class="img-fluid" alt="Portfolio Image">
+                        <p id="portfolioDescriptionText"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>댓글</h6>
+                        <div class="comment-section">
+                            <div class="comment">
+                                <strong>사용자1:</strong> 쌈@뽕하네요.
+                            </div>
+                            <div class="comment">
+                                <strong>사용자2:</strong> 문의 드립니다.
+                            </div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" class="form-control" placeholder="댓글을 입력하세요">
+                            <button class="btn btn-primary mt-2">댓글 달기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+  <!-- info section -->
   <section class="info_section layout_padding2">
     <div class="container">
       <div class="row">
@@ -281,6 +340,16 @@
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
   <script>
+    $(document).ready(function() {
+      // Portfolio image click event
+      $('.portfolio-img').on('click', function() {  
+                var src = $(this).attr('src');
+                var description = '포트폴리오 설명 텍스트가 여기에 표시됩니다.'; // 실제 데이터로 교체해야 합니다.
+                $('#portfolioImage').attr('src', src);
+                $('#portfolioDescriptionText').text(description);
+            });
+        });
+
     document.addEventListener('DOMContentLoaded', function() {
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       const userEmail = localStorage.getItem('userEmail');
