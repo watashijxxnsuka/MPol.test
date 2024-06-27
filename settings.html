@@ -9,7 +9,7 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="images/star-favicon.png" type="favicon">
 
-  <title> MPol - 마이페이지 </title>
+  <title> MPol - 설정 </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,8 +29,8 @@
   <link href="css/responsive.css" rel="stylesheet" />
   <style>
     .profile-img {
-      width: 35px;
-      height: 35px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -40,18 +40,10 @@
       align-items: center;
       margin-top: 20px;
       color: white;
-      justify-content: space-between;
-    }
-
-    .profile_left {
-      display: flex;
-      align-items: center;
     }
 
     .profile_info h2 {
       margin-left: 20px;
-      margin-bottom: 0;
-      font-weight: bold;
     }
 
     .profile_social {
@@ -64,50 +56,39 @@
       color: white;
     }
 
-    .portfolio_grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 50px;
-    }
-
-    .portfolio_grid .col-md-4 {
-      flex: 1 0 30%;
-      margin: 10px;
-    }
-
-    .portfolio_grid img {
-      width: 100%;
-      height: 450px;
-      border-radius: 10px;
-    }
-
-    .portfolio_grid p {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .myPage_section {
+    .settings_section {
       background-color: #0F054C;
       color: white;
       padding: 40px 0;
     }
 
-    .portfolio_item img:hover {
-      transform: scale(1.15);
+    .settings_form {
+      margin-top: 50px;
+      background-color: #1F1668;
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    .settings-btn, .logout-btn {
+    .settings_form label {
+      margin-top: 10px;
+    }
+
+    .settings_form input,
+    .settings_form button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .settings_form button {
       background-color: #fff;
       color: #0F054C;
       border: 2px solid #0F054C;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-right: 20px;
     }
 
-    .settings-btn:hover, .logout-btn:hover {
+    .settings_form button:hover {
       background-color: #0F054C;
       color: #fff;
     }
@@ -170,41 +151,53 @@
     
   </div>
 
-  <!-- myPage section -->
-  <section class="myPage_section layout_padding">
+  <!-- settings section -->
+  <section class="settings_section layout_padding">
     <div class="container">
       <div class="profile_info">
-        <div class="profile_left">
-          <img src="images/한서준 사진.jpeg" alt="Profile" class="profile-img">
-          <h2>watashijxxnsuka</h2>
-        </div>
-        <div class="profile_right">
-          <a href="settings.html" class="settings-btn"><i class="fa fas fa-cogs"></i></a>
-          <a href="#" class="logout-btn" id="logoutBtn"><i class="fa fa-sign-out"></i></a>
-        </div>
+        <img src="images/Dotori_(1).jpg" alt="Profile" class="profile-img">
+        <h2>watashijxxnsuka</h2>
       </div>
-      <div class="profile_social">
-        <a href="https://www.instagram.com/watashijxxnsuka/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://github.com/watashijxxnsuka"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/@hoonyacoff"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+
+      <div class="settings_form">
+        <h3>프로필 정보 수정</h3>
+        <form>
+          <label for="profileName">이름</label>
+          <input type="text" id="profileName" name="profileName" value="watashijxxnsuka">
+          <label for="profileEmail">이메일</label>
+          <input type="email" id="profileEmail" name="profileEmail" value="jxxn2538@gmail.com">
+          <button type="submit">수정</button>
+        </form>
       </div>
-      <div class="portfolio_grid">
-        <div class="col-md-4 portfolio_item">
-          <img src="images/Dotori_(1).jpg" alt="Portfolio 1">
-          <p>24년 최신작</p>
-        </div>
-        <div class="col-md-4 portfolio_item">
-          <img src="images/45－1.jpg" alt="Portfolio 2">
-          <p>23년 한서준 포트폴리오</p>
-        </div>
-        <div class="col-md-4 portfolio_item">
-          <img src="images/IMG_9473.png" alt="Portfolio 3">
-          <p>22년 한서준</p>
-        </div>
+
+      <div class="settings_form">
+        <h3>비밀번호 변경</h3>
+        <form>
+          <label for="currentPassword">현재 비밀번호</label>
+          <input type="password" id="currentPassword" name="currentPassword">
+          <label for="newPassword">새 비밀번호</label>
+          <input type="password" id="newPassword" name="newPassword">
+          <label for="confirmPassword">새 비밀번호 확인</label>
+          <input type="password" id="confirmPassword" name="confirmPassword">
+          <button type="submit">변경</button>
+        </form>
+      </div>
+
+      <div class="settings_form">
+        <h3>결제 정보 등록</h3>
+        <form>
+          <label for="cardNumber">카드 번호</label>
+          <input type="text" id="cardNumber" name="cardNumber">
+          <label for="cardExpiry">유효 기간</label>
+          <input type="text" id="cardExpiry" name="cardExpiry">
+          <label for="cardCVC">CVC</label>
+          <input type="text" id="cardCVC" name="cardCVC">
+          <button type="submit">등록</button>
+        </form>
       </div>
     </div>
   </section>
-  <!-- end myPage section -->
+  <!-- end settings section -->
 
   <!-- info section -->
   <section class="info_section layout_padding2">
@@ -322,7 +315,6 @@
       const userEmail = localStorage.getItem('userEmail');
       
       if (isLoggedIn) {
-        console.log('aaa');
         const loginItem = document.getElementById('loginItem');
         loginItem.innerHTML = `
           <a class="nav-link" href="mypage.html">
@@ -330,17 +322,9 @@
           </a>
         `;
       }
-
-      const logoutBtn = document.getElementById('logoutBtn');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', function() {
-          localStorage.removeItem('isLoggedIn');
-          localStorage.removeItem('userEmail');
-          window.location.href = 'index.html';
-        });
-      }
     });
   </script>
 </body>
 
 </html>
+\

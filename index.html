@@ -4,7 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- favicon -->
   <link rel="shortcut icon" href="images/star-favicon.png" type="">
 
   <title> MPol </title>
@@ -50,12 +53,12 @@
             <span>MPol</span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 10px;">
+            <ul class="navbar-nav">
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
               </li>
@@ -75,7 +78,7 @@
                 <a class="nav-link" href="login.html"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
               </li>
               <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
@@ -103,8 +106,8 @@
                       자랑하고 싶은 당신의 모습을 여기서 보여주세요.
                     </p>
                     <div class="btn-box">
-                      <a href="login.html" class="btn1">
-                        로그인하세요.
+                      <a href="login.html" class="btn1" id="sliderBtn1">
+                        로그인
                       </a>
                     </div>
                   </div>
@@ -130,7 +133,7 @@
                       다양한 기업들에게 당신의 모습을 어필해주세요.
                     </p>
                     <div class="btn-box">
-                      <a href="login.html" class="btn1">
+                      <a href="login.html" class="btn1" id="sliderBtn2">
                         로그인 해볼래요?
                       </a>
                     </div>
@@ -157,8 +160,8 @@
                       도전해보세요. 당신은 어디까지 올라갈 수 있나요?
                     </p>
                     <div class="btn-box">
-                      <a href="login.html" class="btn1">
-                        쫄?
+                      <a href="login.html" class="btn1" id="sliderBtn3">
+                        로그인 후 이용해주세요.
                       </a>
                     </div>
                   </div>
@@ -172,12 +175,13 @@
             </div>
           </div>
         </div>
-        <div class="carousel-indicators">
+        <ol class="carousel-indicators">
           <button data-bs-target="#customCarousel1" data-bs-slide-to="0" class="active"></button>
           <button data-bs-target="#customCarousel1" data-bs-slide-to="1"></button>
           <button data-bs-target="#customCarousel1" data-bs-slide-to="2"></button>
-        <div>
-      </div>
+        </ol>
+        </div>
+
     </section>
     <!-- end slider section -->
   </div>
@@ -324,7 +328,7 @@
       <div class="why_container">
         <div class="box">
           <div class="img-box">
-            <img src="images/w1.png" alt="">
+            <img src="images/s3.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -337,7 +341,7 @@
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/w2.png" alt="">
+            <img src="images/w4.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -350,7 +354,7 @@
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/w3.png" alt="">
+            <img src="images/w1.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -385,7 +389,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="box ">
               <div class="img-box">
-                <img src="images/anime-anime-girls-Himouto-Umaru-chan-Doma-Umaru-minimalism-simple-background-1396361-wallhere.com.jpg" class="img1" alt="">
+                <img src="images/한서준 사진.jpeg" class="img1" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -397,11 +401,11 @@
               </div>
               <div class="social_box">
                 </a>
-                <a href="https://github.com/watashijxxnsuka">
-                  <i class="fa fab fa-github" aria-hidden="true"></i>
-                </a>
                 <a href="https://www.instagram.com/watashijxxnsuka/">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/watashijxxnsuka">
+                  <i class="fa fab fa-github" aria-hidden="true"></i>
                 </a>
                 <a href="#">
                   <i class="fa fa-youtube-play" aria-hidden="true"></i>
@@ -494,18 +498,9 @@
             </div>
           </div>
           <div class="info_social">
-            <a href="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
+            <a href="https://www.instagram.com/watashijxxnsuka/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://github.com/watashijxxnsuka"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/@hoonyacoff"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="col-md-6 col-lg-3 info_col">
@@ -564,13 +559,13 @@
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">watashijxxnsuka</a>
+        <a href="https://www.instagram.com/watashijxxnsuka/">watashijxxnsuka</a>
       </p>
     </div>
   </section>
   <!-- footer section -->
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
@@ -587,13 +582,21 @@
       const userEmail = localStorage.getItem('userEmail');
       
       if (isLoggedIn) {
-        console.log('aaa');
         const loginItem = document.getElementById('loginItem');
         loginItem.innerHTML = `
           <a class="nav-link" href="mypage.html">
-            <img src="images/Dotori_(1).jpg" alt="Profile" class="profile-img">
+            <img src="images/한서준 사진.jpeg" alt="Profile" class="profile-img">
           </a>
         `;
+
+        document.getElementById('sliderBtn1').href = "mypage.html";
+        document.getElementById('sliderBtn1').innerText = "마이페이지";
+
+        document.getElementById('sliderBtn2').href = "company.html";
+        document.getElementById('sliderBtn2').innerText = "기업페이지";
+
+        document.getElementById('sliderBtn3').href = "ranking.html";
+        document.getElementById('sliderBtn3').innerText = "랭킹페이지";
       }
     });
   </script>
