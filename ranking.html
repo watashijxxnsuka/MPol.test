@@ -393,6 +393,40 @@
           
         }
       }
+
+      // Function to add a portfolio to recent views with a timestamp
+function addPortfolioToRecent(portfolio) {
+  let recentPortfolios = JSON.parse(localStorage.getItem('recentPortfolios')) || [];
+
+  // Check if portfolio already exists, remove it if it does
+  recentPortfolios = recentPortfolios.filter(p => p.id !== portfolio.id);
+
+  // Add the portfolio with a timestamp
+  portfolio.timestamp = new Date().getTime();
+  recentPortfolios.unshift(portfolio);
+
+  // Limit to 10 recent portfolios
+  if (recentPortfolios.length > 10) {
+    recentPortfolios.pop();
+  }
+
+  localStorage.setItem('recentPortfolios', JSON.stringify(recentPortfolios));
+}
+
+// Example of viewing a portfolio (replace with actual view logic)
+document.querySelectorAll('.portfolio-img').forEach(img => {
+  img.addEventListener('click', function() {
+    const portfolio = {
+      id: this.dataset.id,
+      image: this.src,
+      title: this.alt,
+      description: 'Sample description', // Replace with actual description
+      comments: [] // Replace with actual comments
+    };
+    addPortfolioToRecent(portfolio);
+  });
+});
+
     });
   </script>
 </body>

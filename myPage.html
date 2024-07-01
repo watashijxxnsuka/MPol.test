@@ -225,7 +225,7 @@
       <div class="profile_info">
         <div class="profile_left">
           <img src="images/한서준 사진.jpeg" alt="Profile" class="profile-img">
-          <h2>watashijxxnsuka</h2>
+          <h2 id="usernameDisplay"></h2>
         </div>
         <div class="profile_right">
           <a href="settings.html" class="settings-btn"><i class="fa fas fa-cogs"></i></a>
@@ -302,8 +302,18 @@
               </button>
             </div>
             <div class="col-md-4">
-              <div class="comment-section">
+              <div class="d-flex justify-content-between align-items-center">
                 <h6>Comments</h6>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="optionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Options
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="optionsDropdown">
+                    <li><a class="dropdown-item" href="#" id="deletePortfolio">Delete</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-section">
                 <div id="commentsList"></div>
                 <div class="mb-3">
                   <label for="commentText" class="form-label">Add Comment</label>
@@ -427,8 +437,7 @@
   <!-- bootstrap js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
   <!-- end scripts add-->
@@ -437,6 +446,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       const userEmail = localStorage.getItem('userEmail');
+      const username = localStorage.getItem('username');
 
       if (isLoggedIn) {
         const loginItem = document.getElementById('loginItem');
@@ -447,11 +457,14 @@
         `;
       }
 
+      if (username) {
+        document.getElementById('usernameDisplay').innerText = username;
+      }
+
       const logoutBtn = document.getElementById('logoutBtn');
       if (logoutBtn) {
         logoutBtn.addEventListener('click', function () {
           localStorage.removeItem('isLoggedIn');
-          localStorage.removeItem('userEmail');
           window.location.href = 'index.html';
         });
       }
@@ -487,11 +500,12 @@
             description,
             tags,
             comments: [], // Initialize an empty comments array
-            likes: 0 // Initialize likes
+            likes: 0, // Initialize likes
+            timestamp: new Date().getTime() // Add a timestamp
           };
 
           let portfolio = JSON.parse(localStorage.getItem('portfolio')) || [];
-          portfolio.push(portfolioItem);
+          portfolio.unshift(portfolioItem); // Add to the beginning of the array
           localStorage.setItem('portfolio', JSON.stringify(portfolio));
 
           displayPortfolio();
@@ -505,6 +519,7 @@
         portfolioGrid.innerHTML = '';
 
         let portfolio = JSON.parse(localStorage.getItem('portfolio')) || [];
+        portfolio.sort((a, b) => b.timestamp - a.timestamp); // Sort by timestamp
         portfolio.forEach(item => {
           const col = document.createElement('div');
           col.className = 'col-md-4 portfolio_item';
@@ -559,11 +574,55 @@
             }
           };
 
+          document.getElementById('deletePortfolio').onclick = function () {
+            if (confirm('Are you sure you want to delete this portfolio?')) {
+              let portfolio = JSON.parse(localStorage.getItem('portfolio')) || [];
+              portfolio = portfolio.filter(item => item.id !== id);
+              localStorage.setItem('portfolio', JSON.stringify(portfolio));
+              $('#portfolioDetailsModal').modal('hide');
+              displayPortfolio();
+            }
+          };
+
           $('#portfolioDetailsModal').modal('show');
         }
       }
 
       displayPortfolio();
+
+      // Function to add a portfolio to recent views with a timestamp
+      function addPortfolioToRecent(portfolio) {
+        let recentPortfolios = JSON.parse(localStorage.getItem('recentPortfolios')) || [];
+
+        // Check if portfolio already exists, remove it if it does
+        recentPortfolios = recentPortfolios.filter(p => p.id !== portfolio.id);
+
+        // Add the portfolio with a timestamp
+        portfolio.timestamp = new Date().getTime();
+        recentPortfolios.unshift(portfolio);
+
+        // Limit to 10 recent portfolios
+        if (recentPortfolios.length > 10) {
+          recentPortfolios.pop();
+        }
+
+        localStorage.setItem('recentPortfolios', JSON.stringify(recentPortfolios));
+      }
+
+      // Example of viewing a portfolio (replace with actual view logic)
+      document.querySelectorAll('.portfolio-img').forEach(img => {
+        img.addEventListener('click', function() {
+          const portfolio = {
+            id: this.dataset.id,
+            image: this.src,
+            title: this.alt,
+            description: 'Sample description', // Replace with actual description
+            comments: [] // Replace with actual comments
+          };
+          addPortfolioToRecent(portfolio);
+        });
+      });
+
     });
   </script>
 </body>
